@@ -1,0 +1,923 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.1.18
+-- Dumped by pg_dump version 9.1.18
+-- Started on 2017-07-10 18:44:48 VET
+
+SET statement_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- TOC entry 181 (class 3079 OID 11644)
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- TOC entry 1973 (class 0 OID 0)
+-- Dependencies: 181
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 180 (class 1259 OID 24869)
+-- Dependencies: 5
+-- Name: cita; Type: TABLE; Schema: public; Owner: usuario; Tablespace: 
+--
+
+CREATE TABLE cita (
+    id_cita integer NOT NULL,
+    fecha date,
+    hora date
+);
+
+
+ALTER TABLE public.cita OWNER TO usuario;
+
+--
+-- TOC entry 179 (class 1259 OID 24867)
+-- Dependencies: 180 5
+-- Name: cita_id_cita_seq; Type: SEQUENCE; Schema: public; Owner: usuario
+--
+
+CREATE SEQUENCE cita_id_cita_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.cita_id_cita_seq OWNER TO usuario;
+
+--
+-- TOC entry 1974 (class 0 OID 0)
+-- Dependencies: 179
+-- Name: cita_id_cita_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: usuario
+--
+
+ALTER SEQUENCE cita_id_cita_seq OWNED BY cita.id_cita;
+
+
+--
+-- TOC entry 168 (class 1259 OID 24774)
+-- Dependencies: 5
+-- Name: encargado; Type: TABLE; Schema: public; Owner: usuario; Tablespace: 
+--
+
+CREATE TABLE encargado (
+    id_encargado integer NOT NULL,
+    cedula character varying(10),
+    nombre character varying(20)
+);
+
+
+ALTER TABLE public.encargado OWNER TO usuario;
+
+--
+-- TOC entry 167 (class 1259 OID 24772)
+-- Dependencies: 5 168
+-- Name: encargado_id_encargado_seq; Type: SEQUENCE; Schema: public; Owner: usuario
+--
+
+CREATE SEQUENCE encargado_id_encargado_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.encargado_id_encargado_seq OWNER TO usuario;
+
+--
+-- TOC entry 1975 (class 0 OID 0)
+-- Dependencies: 167
+-- Name: encargado_id_encargado_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: usuario
+--
+
+ALTER SEQUENCE encargado_id_encargado_seq OWNED BY encargado.id_encargado;
+
+
+--
+-- TOC entry 174 (class 1259 OID 24827)
+-- Dependencies: 5
+-- Name: municipio; Type: TABLE; Schema: public; Owner: usuario; Tablespace: 
+--
+
+CREATE TABLE municipio (
+    id_municipio integer NOT NULL,
+    municipio character varying
+);
+
+
+ALTER TABLE public.municipio OWNER TO usuario;
+
+--
+-- TOC entry 173 (class 1259 OID 24825)
+-- Dependencies: 174 5
+-- Name: municipio_id_municipio_seq; Type: SEQUENCE; Schema: public; Owner: usuario
+--
+
+CREATE SEQUENCE municipio_id_municipio_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.municipio_id_municipio_seq OWNER TO usuario;
+
+--
+-- TOC entry 1976 (class 0 OID 0)
+-- Dependencies: 173
+-- Name: municipio_id_municipio_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: usuario
+--
+
+ALTER SEQUENCE municipio_id_municipio_seq OWNED BY municipio.id_municipio;
+
+
+--
+-- TOC entry 164 (class 1259 OID 24753)
+-- Dependencies: 5
+-- Name: operador; Type: TABLE; Schema: public; Owner: usuario; Tablespace: 
+--
+
+CREATE TABLE operador (
+    id_operador integer NOT NULL,
+    nombre character varying(50),
+    clave character varying(15),
+    rol integer
+);
+
+
+ALTER TABLE public.operador OWNER TO usuario;
+
+--
+-- TOC entry 163 (class 1259 OID 24751)
+-- Dependencies: 164 5
+-- Name: operador_id_operrador_seq; Type: SEQUENCE; Schema: public; Owner: usuario
+--
+
+CREATE SEQUENCE operador_id_operrador_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.operador_id_operrador_seq OWNER TO usuario;
+
+--
+-- TOC entry 1977 (class 0 OID 0)
+-- Dependencies: 163
+-- Name: operador_id_operrador_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: usuario
+--
+
+ALTER SEQUENCE operador_id_operrador_seq OWNED BY operador.id_operador;
+
+
+--
+-- TOC entry 171 (class 1259 OID 24811)
+-- Dependencies: 5
+-- Name: parroquia; Type: TABLE; Schema: public; Owner: usuario; Tablespace: 
+--
+
+CREATE TABLE parroquia (
+    id_parroquia integer NOT NULL,
+    parroquia character varying,
+    id_municipio integer
+);
+
+
+ALTER TABLE public.parroquia OWNER TO usuario;
+
+--
+-- TOC entry 172 (class 1259 OID 24814)
+-- Dependencies: 171 5
+-- Name: parraquia_id_parroquia_seq; Type: SEQUENCE; Schema: public; Owner: usuario
+--
+
+CREATE SEQUENCE parraquia_id_parroquia_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.parraquia_id_parroquia_seq OWNER TO usuario;
+
+--
+-- TOC entry 1978 (class 0 OID 0)
+-- Dependencies: 172
+-- Name: parraquia_id_parroquia_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: usuario
+--
+
+ALTER SEQUENCE parraquia_id_parroquia_seq OWNED BY parroquia.id_parroquia;
+
+
+--
+-- TOC entry 178 (class 1259 OID 24846)
+-- Dependencies: 5
+-- Name: registro; Type: TABLE; Schema: public; Owner: usuario; Tablespace: 
+--
+
+CREATE TABLE registro (
+    id_registro integer NOT NULL,
+    id_usuario integer,
+    id_operador integer,
+    id_encargado integer,
+    id_cita integer,
+    fecha timestamp without time zone
+);
+
+
+ALTER TABLE public.registro OWNER TO usuario;
+
+--
+-- TOC entry 177 (class 1259 OID 24844)
+-- Dependencies: 5 178
+-- Name: reguistro_id_registro_seq; Type: SEQUENCE; Schema: public; Owner: usuario
+--
+
+CREATE SEQUENCE reguistro_id_registro_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.reguistro_id_registro_seq OWNER TO usuario;
+
+--
+-- TOC entry 1979 (class 0 OID 0)
+-- Dependencies: 177
+-- Name: reguistro_id_registro_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: usuario
+--
+
+ALTER SEQUENCE reguistro_id_registro_seq OWNED BY registro.id_registro;
+
+
+--
+-- TOC entry 162 (class 1259 OID 24745)
+-- Dependencies: 5
+-- Name: rol; Type: TABLE; Schema: public; Owner: usuario; Tablespace: 
+--
+
+CREATE TABLE rol (
+    id_rol integer NOT NULL,
+    tipo character varying(20)
+);
+
+
+ALTER TABLE public.rol OWNER TO usuario;
+
+--
+-- TOC entry 161 (class 1259 OID 24743)
+-- Dependencies: 162 5
+-- Name: rol_id_rol_seq; Type: SEQUENCE; Schema: public; Owner: usuario
+--
+
+CREATE SEQUENCE rol_id_rol_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.rol_id_rol_seq OWNER TO usuario;
+
+--
+-- TOC entry 1980 (class 0 OID 0)
+-- Dependencies: 161
+-- Name: rol_id_rol_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: usuario
+--
+
+ALTER SEQUENCE rol_id_rol_seq OWNED BY rol.id_rol;
+
+
+--
+-- TOC entry 166 (class 1259 OID 24766)
+-- Dependencies: 5
+-- Name: servicio; Type: TABLE; Schema: public; Owner: usuario; Tablespace: 
+--
+
+CREATE TABLE servicio (
+    id_servicio integer NOT NULL,
+    tipo character varying(20)
+);
+
+
+ALTER TABLE public.servicio OWNER TO usuario;
+
+--
+-- TOC entry 170 (class 1259 OID 24782)
+-- Dependencies: 5
+-- Name: servicio_encargado; Type: TABLE; Schema: public; Owner: usuario; Tablespace: 
+--
+
+CREATE TABLE servicio_encargado (
+    id_encargadoservicio integer NOT NULL,
+    id_encarg integer,
+    id_servi integer
+);
+
+
+ALTER TABLE public.servicio_encargado OWNER TO usuario;
+
+--
+-- TOC entry 169 (class 1259 OID 24780)
+-- Dependencies: 5 170
+-- Name: servicio_encargado_id_encargadoservicio_seq; Type: SEQUENCE; Schema: public; Owner: usuario
+--
+
+CREATE SEQUENCE servicio_encargado_id_encargadoservicio_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.servicio_encargado_id_encargadoservicio_seq OWNER TO usuario;
+
+--
+-- TOC entry 1981 (class 0 OID 0)
+-- Dependencies: 169
+-- Name: servicio_encargado_id_encargadoservicio_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: usuario
+--
+
+ALTER SEQUENCE servicio_encargado_id_encargadoservicio_seq OWNED BY servicio_encargado.id_encargadoservicio;
+
+
+--
+-- TOC entry 165 (class 1259 OID 24764)
+-- Dependencies: 5 166
+-- Name: servicio_id_servicio_seq; Type: SEQUENCE; Schema: public; Owner: usuario
+--
+
+CREATE SEQUENCE servicio_id_servicio_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.servicio_id_servicio_seq OWNER TO usuario;
+
+--
+-- TOC entry 1982 (class 0 OID 0)
+-- Dependencies: 165
+-- Name: servicio_id_servicio_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: usuario
+--
+
+ALTER SEQUENCE servicio_id_servicio_seq OWNED BY servicio.id_servicio;
+
+
+--
+-- TOC entry 176 (class 1259 OID 24838)
+-- Dependencies: 5
+-- Name: usuario; Type: TABLE; Schema: public; Owner: usuario; Tablespace: 
+--
+
+CREATE TABLE usuario (
+    id_usuario integer NOT NULL,
+    nom_usu character varying(15),
+    ape_usu character varying(15),
+    direc_usu character varying(100),
+    ced_usu character varying(10),
+    cod_usu character varying(15),
+    id_parroquia integer,
+    id_municipio integer
+);
+
+
+ALTER TABLE public.usuario OWNER TO usuario;
+
+--
+-- TOC entry 175 (class 1259 OID 24836)
+-- Dependencies: 176 5
+-- Name: usuario_id_usuario_seq; Type: SEQUENCE; Schema: public; Owner: usuario
+--
+
+CREATE SEQUENCE usuario_id_usuario_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.usuario_id_usuario_seq OWNER TO usuario;
+
+--
+-- TOC entry 1983 (class 0 OID 0)
+-- Dependencies: 175
+-- Name: usuario_id_usuario_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: usuario
+--
+
+ALTER SEQUENCE usuario_id_usuario_seq OWNED BY usuario.id_usuario;
+
+
+--
+-- TOC entry 1817 (class 2604 OID 24872)
+-- Dependencies: 179 180 180
+-- Name: id_cita; Type: DEFAULT; Schema: public; Owner: usuario
+--
+
+ALTER TABLE ONLY cita ALTER COLUMN id_cita SET DEFAULT nextval('cita_id_cita_seq'::regclass);
+
+
+--
+-- TOC entry 1811 (class 2604 OID 24777)
+-- Dependencies: 168 167 168
+-- Name: id_encargado; Type: DEFAULT; Schema: public; Owner: usuario
+--
+
+ALTER TABLE ONLY encargado ALTER COLUMN id_encargado SET DEFAULT nextval('encargado_id_encargado_seq'::regclass);
+
+
+--
+-- TOC entry 1814 (class 2604 OID 24830)
+-- Dependencies: 174 173 174
+-- Name: id_municipio; Type: DEFAULT; Schema: public; Owner: usuario
+--
+
+ALTER TABLE ONLY municipio ALTER COLUMN id_municipio SET DEFAULT nextval('municipio_id_municipio_seq'::regclass);
+
+
+--
+-- TOC entry 1809 (class 2604 OID 24756)
+-- Dependencies: 163 164 164
+-- Name: id_operador; Type: DEFAULT; Schema: public; Owner: usuario
+--
+
+ALTER TABLE ONLY operador ALTER COLUMN id_operador SET DEFAULT nextval('operador_id_operrador_seq'::regclass);
+
+
+--
+-- TOC entry 1813 (class 2604 OID 24816)
+-- Dependencies: 172 171
+-- Name: id_parroquia; Type: DEFAULT; Schema: public; Owner: usuario
+--
+
+ALTER TABLE ONLY parroquia ALTER COLUMN id_parroquia SET DEFAULT nextval('parraquia_id_parroquia_seq'::regclass);
+
+
+--
+-- TOC entry 1816 (class 2604 OID 24849)
+-- Dependencies: 178 177 178
+-- Name: id_registro; Type: DEFAULT; Schema: public; Owner: usuario
+--
+
+ALTER TABLE ONLY registro ALTER COLUMN id_registro SET DEFAULT nextval('reguistro_id_registro_seq'::regclass);
+
+
+--
+-- TOC entry 1808 (class 2604 OID 24748)
+-- Dependencies: 162 161 162
+-- Name: id_rol; Type: DEFAULT; Schema: public; Owner: usuario
+--
+
+ALTER TABLE ONLY rol ALTER COLUMN id_rol SET DEFAULT nextval('rol_id_rol_seq'::regclass);
+
+
+--
+-- TOC entry 1810 (class 2604 OID 24769)
+-- Dependencies: 165 166 166
+-- Name: id_servicio; Type: DEFAULT; Schema: public; Owner: usuario
+--
+
+ALTER TABLE ONLY servicio ALTER COLUMN id_servicio SET DEFAULT nextval('servicio_id_servicio_seq'::regclass);
+
+
+--
+-- TOC entry 1812 (class 2604 OID 24785)
+-- Dependencies: 170 169 170
+-- Name: id_encargadoservicio; Type: DEFAULT; Schema: public; Owner: usuario
+--
+
+ALTER TABLE ONLY servicio_encargado ALTER COLUMN id_encargadoservicio SET DEFAULT nextval('servicio_encargado_id_encargadoservicio_seq'::regclass);
+
+
+--
+-- TOC entry 1815 (class 2604 OID 24841)
+-- Dependencies: 176 175 176
+-- Name: id_usuario; Type: DEFAULT; Schema: public; Owner: usuario
+--
+
+ALTER TABLE ONLY usuario ALTER COLUMN id_usuario SET DEFAULT nextval('usuario_id_usuario_seq'::regclass);
+
+
+--
+-- TOC entry 1965 (class 0 OID 24869)
+-- Dependencies: 180 1966
+-- Data for Name: cita; Type: TABLE DATA; Schema: public; Owner: usuario
+--
+
+COPY cita (id_cita, fecha, hora) FROM stdin;
+\.
+
+
+--
+-- TOC entry 1984 (class 0 OID 0)
+-- Dependencies: 179
+-- Name: cita_id_cita_seq; Type: SEQUENCE SET; Schema: public; Owner: usuario
+--
+
+SELECT pg_catalog.setval('cita_id_cita_seq', 1, false);
+
+
+--
+-- TOC entry 1953 (class 0 OID 24774)
+-- Dependencies: 168 1966
+-- Data for Name: encargado; Type: TABLE DATA; Schema: public; Owner: usuario
+--
+
+COPY encargado (id_encargado, cedula, nombre) FROM stdin;
+\.
+
+
+--
+-- TOC entry 1985 (class 0 OID 0)
+-- Dependencies: 167
+-- Name: encargado_id_encargado_seq; Type: SEQUENCE SET; Schema: public; Owner: usuario
+--
+
+SELECT pg_catalog.setval('encargado_id_encargado_seq', 1, false);
+
+
+--
+-- TOC entry 1959 (class 0 OID 24827)
+-- Dependencies: 174 1966
+-- Data for Name: municipio; Type: TABLE DATA; Schema: public; Owner: usuario
+--
+
+COPY municipio (id_municipio, municipio) FROM stdin;
+1	iribarren
+2	crespo
+3	andres eloy blanco
+\.
+
+
+--
+-- TOC entry 1986 (class 0 OID 0)
+-- Dependencies: 173
+-- Name: municipio_id_municipio_seq; Type: SEQUENCE SET; Schema: public; Owner: usuario
+--
+
+SELECT pg_catalog.setval('municipio_id_municipio_seq', 3, true);
+
+
+--
+-- TOC entry 1949 (class 0 OID 24753)
+-- Dependencies: 164 1966
+-- Data for Name: operador; Type: TABLE DATA; Schema: public; Owner: usuario
+--
+
+COPY operador (id_operador, nombre, clave, rol) FROM stdin;
+1	luis	1234	2
+2	erly	1234	1
+\.
+
+
+--
+-- TOC entry 1987 (class 0 OID 0)
+-- Dependencies: 163
+-- Name: operador_id_operrador_seq; Type: SEQUENCE SET; Schema: public; Owner: usuario
+--
+
+SELECT pg_catalog.setval('operador_id_operrador_seq', 2, true);
+
+
+--
+-- TOC entry 1988 (class 0 OID 0)
+-- Dependencies: 172
+-- Name: parraquia_id_parroquia_seq; Type: SEQUENCE SET; Schema: public; Owner: usuario
+--
+
+SELECT pg_catalog.setval('parraquia_id_parroquia_seq', 3, true);
+
+
+--
+-- TOC entry 1956 (class 0 OID 24811)
+-- Dependencies: 171 1966
+-- Data for Name: parroquia; Type: TABLE DATA; Schema: public; Owner: usuario
+--
+
+COPY parroquia (id_parroquia, parroquia, id_municipio) FROM stdin;
+1	juan de villegas	1
+2	jose maria blanco	2
+3	catedral	1
+\.
+
+
+--
+-- TOC entry 1963 (class 0 OID 24846)
+-- Dependencies: 178 1966
+-- Data for Name: registro; Type: TABLE DATA; Schema: public; Owner: usuario
+--
+
+COPY registro (id_registro, id_usuario, id_operador, id_encargado, id_cita, fecha) FROM stdin;
+\.
+
+
+--
+-- TOC entry 1989 (class 0 OID 0)
+-- Dependencies: 177
+-- Name: reguistro_id_registro_seq; Type: SEQUENCE SET; Schema: public; Owner: usuario
+--
+
+SELECT pg_catalog.setval('reguistro_id_registro_seq', 1, false);
+
+
+--
+-- TOC entry 1947 (class 0 OID 24745)
+-- Dependencies: 162 1966
+-- Data for Name: rol; Type: TABLE DATA; Schema: public; Owner: usuario
+--
+
+COPY rol (id_rol, tipo) FROM stdin;
+1	administrador
+2	trabajadora
+\.
+
+
+--
+-- TOC entry 1990 (class 0 OID 0)
+-- Dependencies: 161
+-- Name: rol_id_rol_seq; Type: SEQUENCE SET; Schema: public; Owner: usuario
+--
+
+SELECT pg_catalog.setval('rol_id_rol_seq', 2, true);
+
+
+--
+-- TOC entry 1951 (class 0 OID 24766)
+-- Dependencies: 166 1966
+-- Data for Name: servicio; Type: TABLE DATA; Schema: public; Owner: usuario
+--
+
+COPY servicio (id_servicio, tipo) FROM stdin;
+\.
+
+
+--
+-- TOC entry 1955 (class 0 OID 24782)
+-- Dependencies: 170 1966
+-- Data for Name: servicio_encargado; Type: TABLE DATA; Schema: public; Owner: usuario
+--
+
+COPY servicio_encargado (id_encargadoservicio, id_encarg, id_servi) FROM stdin;
+\.
+
+
+--
+-- TOC entry 1991 (class 0 OID 0)
+-- Dependencies: 169
+-- Name: servicio_encargado_id_encargadoservicio_seq; Type: SEQUENCE SET; Schema: public; Owner: usuario
+--
+
+SELECT pg_catalog.setval('servicio_encargado_id_encargadoservicio_seq', 1, false);
+
+
+--
+-- TOC entry 1992 (class 0 OID 0)
+-- Dependencies: 165
+-- Name: servicio_id_servicio_seq; Type: SEQUENCE SET; Schema: public; Owner: usuario
+--
+
+SELECT pg_catalog.setval('servicio_id_servicio_seq', 1, false);
+
+
+--
+-- TOC entry 1961 (class 0 OID 24838)
+-- Dependencies: 176 1966
+-- Data for Name: usuario; Type: TABLE DATA; Schema: public; Owner: usuario
+--
+
+COPY usuario (id_usuario, nom_usu, ape_usu, direc_usu, ced_usu, cod_usu, id_parroquia, id_municipio) FROM stdin;
+1	luis	sanchez	cerrajones	1234567	001-f41	1	1
+2	erly	eredia	duaca	121110	002-r34	1	2
+\.
+
+
+--
+-- TOC entry 1993 (class 0 OID 0)
+-- Dependencies: 175
+-- Name: usuario_id_usuario_seq; Type: SEQUENCE SET; Schema: public; Owner: usuario
+--
+
+SELECT pg_catalog.setval('usuario_id_usuario_seq', 2, true);
+
+
+--
+-- TOC entry 1837 (class 2606 OID 24874)
+-- Dependencies: 180 180 1967
+-- Name: cita_pkey; Type: CONSTRAINT; Schema: public; Owner: usuario; Tablespace: 
+--
+
+ALTER TABLE ONLY cita
+    ADD CONSTRAINT cita_pkey PRIMARY KEY (id_cita);
+
+
+--
+-- TOC entry 1825 (class 2606 OID 24779)
+-- Dependencies: 168 168 1967
+-- Name: encargado_pkey; Type: CONSTRAINT; Schema: public; Owner: usuario; Tablespace: 
+--
+
+ALTER TABLE ONLY encargado
+    ADD CONSTRAINT encargado_pkey PRIMARY KEY (id_encargado);
+
+
+--
+-- TOC entry 1831 (class 2606 OID 24835)
+-- Dependencies: 174 174 1967
+-- Name: municipio_pkey; Type: CONSTRAINT; Schema: public; Owner: usuario; Tablespace: 
+--
+
+ALTER TABLE ONLY municipio
+    ADD CONSTRAINT municipio_pkey PRIMARY KEY (id_municipio);
+
+
+--
+-- TOC entry 1821 (class 2606 OID 24758)
+-- Dependencies: 164 164 1967
+-- Name: operador_pkey; Type: CONSTRAINT; Schema: public; Owner: usuario; Tablespace: 
+--
+
+ALTER TABLE ONLY operador
+    ADD CONSTRAINT operador_pkey PRIMARY KEY (id_operador);
+
+
+--
+-- TOC entry 1829 (class 2606 OID 24824)
+-- Dependencies: 171 171 1967
+-- Name: parraquia_pkey; Type: CONSTRAINT; Schema: public; Owner: usuario; Tablespace: 
+--
+
+ALTER TABLE ONLY parroquia
+    ADD CONSTRAINT parraquia_pkey PRIMARY KEY (id_parroquia);
+
+
+--
+-- TOC entry 1835 (class 2606 OID 24851)
+-- Dependencies: 178 178 1967
+-- Name: reguistro_pkey; Type: CONSTRAINT; Schema: public; Owner: usuario; Tablespace: 
+--
+
+ALTER TABLE ONLY registro
+    ADD CONSTRAINT reguistro_pkey PRIMARY KEY (id_registro);
+
+
+--
+-- TOC entry 1819 (class 2606 OID 24750)
+-- Dependencies: 162 162 1967
+-- Name: rol_pkey; Type: CONSTRAINT; Schema: public; Owner: usuario; Tablespace: 
+--
+
+ALTER TABLE ONLY rol
+    ADD CONSTRAINT rol_pkey PRIMARY KEY (id_rol);
+
+
+--
+-- TOC entry 1827 (class 2606 OID 24790)
+-- Dependencies: 170 170 1967
+-- Name: servicio_encargado_pkey; Type: CONSTRAINT; Schema: public; Owner: usuario; Tablespace: 
+--
+
+ALTER TABLE ONLY servicio_encargado
+    ADD CONSTRAINT servicio_encargado_pkey PRIMARY KEY (id_encargadoservicio);
+
+
+--
+-- TOC entry 1823 (class 2606 OID 24771)
+-- Dependencies: 166 166 1967
+-- Name: servicio_pkey; Type: CONSTRAINT; Schema: public; Owner: usuario; Tablespace: 
+--
+
+ALTER TABLE ONLY servicio
+    ADD CONSTRAINT servicio_pkey PRIMARY KEY (id_servicio);
+
+
+--
+-- TOC entry 1833 (class 2606 OID 24843)
+-- Dependencies: 176 176 1967
+-- Name: usuario_pkey; Type: CONSTRAINT; Schema: public; Owner: usuario; Tablespace: 
+--
+
+ALTER TABLE ONLY usuario
+    ADD CONSTRAINT usuario_pkey PRIMARY KEY (id_usuario);
+
+
+--
+-- TOC entry 1838 (class 2606 OID 24862)
+-- Dependencies: 162 164 1818 1967
+-- Name: operador_rol_fkey; Type: FK CONSTRAINT; Schema: public; Owner: usuario
+--
+
+ALTER TABLE ONLY operador
+    ADD CONSTRAINT operador_rol_fkey FOREIGN KEY (rol) REFERENCES rol(id_rol);
+
+
+--
+-- TOC entry 1842 (class 2606 OID 24895)
+-- Dependencies: 178 1836 180 1967
+-- Name: reguistro_id_cita_fkey; Type: FK CONSTRAINT; Schema: public; Owner: usuario
+--
+
+ALTER TABLE ONLY registro
+    ADD CONSTRAINT reguistro_id_cita_fkey FOREIGN KEY (id_cita) REFERENCES cita(id_cita);
+
+
+--
+-- TOC entry 1843 (class 2606 OID 24900)
+-- Dependencies: 178 168 1824 1967
+-- Name: reguistro_id_encargado_fkey; Type: FK CONSTRAINT; Schema: public; Owner: usuario
+--
+
+ALTER TABLE ONLY registro
+    ADD CONSTRAINT reguistro_id_encargado_fkey FOREIGN KEY (id_encargado) REFERENCES encargado(id_encargado);
+
+
+--
+-- TOC entry 1844 (class 2606 OID 24905)
+-- Dependencies: 1832 178 176 1967
+-- Name: reguistro_id_usuario_fkey; Type: FK CONSTRAINT; Schema: public; Owner: usuario
+--
+
+ALTER TABLE ONLY registro
+    ADD CONSTRAINT reguistro_id_usuario_fkey FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario);
+
+
+--
+-- TOC entry 1839 (class 2606 OID 24801)
+-- Dependencies: 1824 170 168 1967
+-- Name: servicio_encargado_id_encarg_fkey; Type: FK CONSTRAINT; Schema: public; Owner: usuario
+--
+
+ALTER TABLE ONLY servicio_encargado
+    ADD CONSTRAINT servicio_encargado_id_encarg_fkey FOREIGN KEY (id_encarg) REFERENCES encargado(id_encargado);
+
+
+--
+-- TOC entry 1840 (class 2606 OID 24806)
+-- Dependencies: 166 170 1822 1967
+-- Name: servicio_encargado_id_servi_fkey; Type: FK CONSTRAINT; Schema: public; Owner: usuario
+--
+
+ALTER TABLE ONLY servicio_encargado
+    ADD CONSTRAINT servicio_encargado_id_servi_fkey FOREIGN KEY (id_servi) REFERENCES servicio(id_servicio);
+
+
+--
+-- TOC entry 1841 (class 2606 OID 24910)
+-- Dependencies: 171 176 1828 1967
+-- Name: usuario_id_parroquia_fkey; Type: FK CONSTRAINT; Schema: public; Owner: usuario
+--
+
+ALTER TABLE ONLY usuario
+    ADD CONSTRAINT usuario_id_parroquia_fkey FOREIGN KEY (id_parroquia) REFERENCES parroquia(id_parroquia);
+
+
+--
+-- TOC entry 1972 (class 0 OID 0)
+-- Dependencies: 5
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+-- Completed on 2017-07-10 18:44:49 VET
+
+--
+-- PostgreSQL database dump complete
+--
+

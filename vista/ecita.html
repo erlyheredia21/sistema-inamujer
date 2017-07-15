@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Dashboard">
+    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+
+    <title>INAMUJER</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <!--external css-->
+    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    
+    <!-- Custom styles for this template -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/style-responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/to-do.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+  <section id="container" >
+      <!-- **********************************************************************************************************************************************************
+      TOP BAR CONTENT & NOTIFICATIONS
+      *********************************************************************************************************************************************************** -->
+      <!--header start-->
+   <header class="header black-bg">
+              <div class="sidebar-toggle-box">
+                  <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+              </div>
+            <!--logo start-->
+            <a href="index.html" class="logo"><IMG SRC="assets/img/inamujer-minmujer.png"  WIDTH=200 HEIGHT=50 ALT="logo inamujer-minmujer"></a>
+            <!--logo end-->
+            
+            <div class="top-menu">
+              <ul class="nav pull-right top-menu">
+                    <li><a class="logout" href="login.html">INGRESAR</a></li><br>
+                    <li> <a href="lock_screen.html"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></li> 
+              </ul>
+            </div>
+
+        </header>
+      <!--header end-->
+      
+      <!--menu del lado izquierdo "sidebar"-->
+      <aside>
+          <div id="sidebar"  class="nav-collapse ">
+              <!-- sidebar menu start-->
+              <ul class="sidebar-menu" id="nav-accordion"><br>
+              
+                  <<img src="assets/img/logocontacto.png"></a></p>
+                  
+                    
+                  <li class="mt">
+                      <a href="index.html">
+                          <i class="fa fa-dashboard"></i>
+                          <span>INICIO</span>
+                      </a>
+                  </li>
+
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-desktop"></i>
+                          <span>GESTIONAR PACIENTES</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="rpaciente.html">REGISTRAR USUARIO</a></li>
+                          <li><a  href="mpaciente.html">MODIFICAR USUARIO</a></li>
+                          <li><a  href="epaciente.html">ELIMINAR USUARIO</a></li>
+                      </ul>
+                  </li>
+
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-cogs"></i>
+                          <span>GESTIONAR CITAS</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="calendario.html">CALENDARIO</a></li>
+                          <li><a  href="rcita.html">REGISTRAR CITA</a></li>
+                          <li><a  href="mcita.html">MODIFICAR CITA</a></li>
+                          <li><a  href="ecita.html">ELIMINAR CITA</a></li>
+                          <li><a  href="ccita.html">CONFIRMAR CITA</a></li>
+                      </ul>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-book"></i>
+                          <span>USUARIO</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="administrador.html">ADMINISTRADOR</a></li>
+                          <li><a  href="login.html">REGISTRAR USUARIO</a></li>
+                          <li><a  href="lock_screen.html">BLOQUEAR PANTALLA</a></li>
+                      </ul>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-tasks"></i>
+                          <span>GESTIONAR MEDICOS</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="form_component.html">REGISTRAR MEDICO</a></li>
+                          <li><a  href="form_component.html">MODIFICAR MEDICO</a></li><li><a  href="form_component.html">ELIMINAR MEDICO</a></li>
+                      </ul>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-th"></i>
+                          <span>GESTIONAR REPORTES</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="greporte.html">GENERAR REPORTE</a></li>
+                          <li><a  href="basic_table.html">MOSTRAR REPORTEs</a></li>
+                          <li><a  href="responsive_table.html">REPORTE COMPLETO</a></li>
+                      </ul>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class=" fa fa-bar-chart-o"></i>
+                          <span>ESTADISTICAS</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="estadisticas.html">MOSTRAR ESTADISTICAS</a></li>
+                      </ul>
+                  </li>
+
+              </ul>
+              <!-- sidebar menu end-->
+          </div>
+      </aside>
+      <!--sidebar fin-->
+      
+      <!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+      <!--main content start-->
+      <section id="main-content">
+          <section class="wrapper">
+          	<h3><class="fa fa-angle-right">LISTA DE CITAS</h3>
+          	
+          	<!-- SIMPLE TO DO LIST -->
+          	<div class="row mt">
+          		<div class="col-md-12">
+          			<div class="white-panel pn">
+	                	<div class="panel-heading">
+	                        <div class="pull-left"><h5><i class="fa fa-tasks"></i> Lista de citas diarias</h5></div>
+	                        <br>
+	                 	</div>
+				  		<div class="custom-check goleft mt">
+				             <table id="todo" class="table table-hover custom-check">
+				              <tbody>
+				                <tr>
+				           			<td>
+				                        <span class="check"><class="checked"></span>
+				                        <a href="index.html#">Maria Pineda</a></span>
+				                        <button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
+									</td>
+				                </tr>
+				                <tr>
+				           			<td>
+				                        <span class="check"><class="checked"></span>
+				                        <a href="index.html#">Carmen</a></span>
+				                        <button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
+									</td>
+				                </tr>
+				                <tr>
+				            		<td>
+				                        <span class="check"><class="checked"></span>
+				                        <a href="index.html#">Luisa</a></span>
+				                        <button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
+									</td>
+				                </tr>
+				                <tr>
+				            		<td>
+				                        <span class="check"><class="checked"></span>
+				                        <a href="index.html#">miriam</a></span>
+				                        <button class="close" aria-hidden="true" data-dismiss="alert" type="button">×</button>
+									</td>
+				                 </tr>
+				              </tbody>
+				          </table>
+                  <div class=" add-task-row">
+                                  <a class="btn btn-success btn-sm pull-left" href="basic_table.html">Enviar</a>
+                                  
+                              </div>
+						</div><!-- /table-responsive -->
+					</div><!--/ White-panel -->
+          		</div><! --/col-md-12 -->
+          	</div><! -- row -->
+			
+
+          	<!-- Segunda lista de citas -->			
+              <div class="row mt">
+                  <div class="col-md-12">
+                      <section class="task-panel tasks-widget">
+	                	<div class="panel-heading">
+	                        <div class="pull-left"><h5><i class="fa fa-tasks"></i> Lista de citas</h5></div>
+	                        <br>
+	                 	</div>
+                          <div class="panel-body">
+                              <div class="task-content">
+
+                                  <ul class="task-list">
+                                      <li>
+                                          <div class="task-checkbox">
+                                              <input type="checkbox" class="list-child" value=""  />
+                                          </div>
+                                          <div class="task-title">
+                                              <span class="task-title-sp">Maria</span>
+                                              
+                                              <div class="pull-right hidden-phone">
+                                                  <button class="btn btn-success btn-xs"><i class=" fa fa-check"></i></button>
+                                                  <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                                                  <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                              </div>
+                                          </div>
+                                      </li>
+                                      <li>
+                                          <div class="task-checkbox">
+                                              <input type="checkbox" class="list-child" value=""  />
+                                          </div>
+                                          <div class="task-title">
+                                              <span class="task-title-sp">Carmen</span>
+                                             
+                                              <div class="pull-right hidden-phone">
+                                                  <button class="btn btn-success btn-xs"><i class=" fa fa-check"></i></button>
+                                                  <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                                                  <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                              </div>
+                                          </div>
+                                      </li>
+                                      <li>
+                                          <div class="task-checkbox">
+                                              <input type="checkbox" class="list-child" value=""  />
+                                          </div>
+                                          <div class="task-title">
+                                              <span class="task-title-sp">Luisa</span>
+                                              
+                                              <div class="pull-right hidden-phone">
+                                                  <button class="btn btn-success btn-xs"><i class=" fa fa-check"></i></button>
+                                                  <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                                                  <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                              </div>
+                                          </div>
+                                      </li>
+                                      <li>
+                                          <div class="task-checkbox">
+                                              <input type="checkbox" class="list-child" value=""  />
+                                          </div>
+                                          <div class="task-title">
+                                              <span class="task-title-sp">Miriam</span>
+                                             
+                                              <div class="pull-right hidden-phone">
+                                                  <button class="btn btn-success btn-xs"><i class=" fa fa-check"></i></button>
+                                                  <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                                                  <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>
+                                              </div>
+                                          </div>
+                                      </li>
+                                                                         
+                                  </ul>
+                              </div>
+
+                              <div class=" add-task-row">
+                                  <a class="btn btn-success btn-sm pull-left" href="basic_table.html">Enviar</a>
+                                  
+                              </div>
+                          </div>
+                      </section>
+                  </div><!-- /col-md-12-->
+              </div><!-- /row -->
+			
+			
+
+			
+		</section><! --/wrapper -->
+      </section><!-- /MAIN CONTENT -->
+
+      <!--main content end-->
+    
+  </section>
+
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="assets/js/jquery.scrollTo.min.js"></script>
+    <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+
+
+    <!--common script for all pages-->
+    <script src="assets/js/common-scripts.js"></script>
+
+    <!--script for this page-->
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>    
+    <script src="assets/js/tasks.js" type="text/javascript"></script>
+
+    <script>
+      jQuery(document).ready(function() {
+          TaskList.initTaskWidget();
+      });
+
+      $(function() {
+          $( "#sortable" ).sortable();
+          $( "#sortable" ).disableSelection();
+      });
+
+    </script>
+    
+    
+  <script>
+      //custom select box
+
+      $(function(){
+          $('select.styled').customSelect();
+      });
+
+  </script>
+
+  </body>
+</html>
